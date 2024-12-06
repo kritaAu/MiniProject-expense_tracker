@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Krittaphat"
         tools:targetApi="31">
         <activity
+            android:name=".EditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".TransactionActivity"
             android:exported="false" />
         <activity

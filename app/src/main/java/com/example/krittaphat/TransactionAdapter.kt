@@ -1,6 +1,7 @@
 package com.example.krittaphat
 
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,6 +33,15 @@ class TransactionAdapter(private var transactions: List<Transaction>) :
             holder.amount.setTextColor(ContextCompat.getColor(context, R.color.red))
         }
         holder.label.text = transaction.label
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context, DetailActivity::class.java)
+            intent.putExtra("id", transaction.id)
+            intent.putExtra("label", transaction.label)
+            intent.putExtra("amount", transaction.amount)
+            intent.putExtra("description", transaction.description)
+            context.startActivity(intent)
+        }
     }
     override fun getItemCount(): Int {
         return transactions.size
