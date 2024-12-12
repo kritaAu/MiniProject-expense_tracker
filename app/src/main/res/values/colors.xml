@@ -6,4 +6,7 @@
     <color name="green">#4CAF50</color>
     <color name="red">#FF0000</color>
     <color name="textcolor">#2C2C2C</color>
+    <color name="datared">#AD2727</color>
+    <color name="datagreen">#075910</color>
+
 </resources>

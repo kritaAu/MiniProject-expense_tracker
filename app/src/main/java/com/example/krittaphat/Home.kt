@@ -30,10 +30,8 @@ class Home : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
 
-        // Initialize transaction data
         transactions = arrayListOf()
 
-        // Initialize Adapter and LayoutManager
         transactionAdapter = TransactionAdapter(transactions)
         layoutManager = LinearLayoutManager(requireContext())
 

@@ -44,7 +44,6 @@ class EditActivity : AppCompatActivity() {
         descUpdate.setText(description)
 
         val btnUpdate: Button = findViewById(R.id.btnUpdate)
-        // แสดงข้อมูลใน EditText
         labelUpdate.setText(label)
         amountUpdate.setText(amount.toString())
         descUpdate.setText(description)
@@ -75,7 +74,6 @@ class EditActivity : AppCompatActivity() {
                 setResult(RESULT_OK, resultIntent)
                 finish()
             }else {
-                // ถ้าไม่สามารถอัปเดตได้ แสดงข้อความแจ้งเตือน
                 Toast.makeText(this, "Failed to update transaction", Toast.LENGTH_SHORT).show()
             }
         }

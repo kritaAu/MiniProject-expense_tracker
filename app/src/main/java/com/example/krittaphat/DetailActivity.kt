@@ -60,10 +60,10 @@ class DetailActivity : AppCompatActivity() {
         val amount = intent.getDoubleExtra("amount", 0.0)
         val description = intent.getStringExtra("description")
         val transactionId = intent.getIntExtra("id", -1)
-        val Type: TextView = findViewById(R.id.TypeTextView)
+        val typeTextView: TextView = findViewById(R.id.TypeTextView)
 
-            if(amount<0)Type.text="expenses"
-            else Type.text="income"
+            if(amount<0)typeTextView.text="expenses"
+            else typeTextView.text="income"
             labelTextView.text = "$label"
             amountTextView.text = "฿%.2f".format(amount)
             descTextView.text = "$description"

@@ -12,11 +12,8 @@
         android:icon="@drawable/ic_pie_chart"/>
 
     <item
-        android:id="@+id/news"
-        android:title="News"
-        android:icon="@drawable/ic_newspaper"/>
-    <item
         android:id="@+id/settings"
         android:title="Setting"
         android:icon="@drawable/ic_settings"/>
+
 </menu>

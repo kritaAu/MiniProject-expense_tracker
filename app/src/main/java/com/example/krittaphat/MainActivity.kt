@@ -18,32 +18,45 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // ดึง Username จาก Intent
+        val username = intent.getStringExtra("USERNAME") ?: "Guest"
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        replaceFragment(Home())
+
+        val homeFragment = Home().apply {
+            arguments = Bundle().apply {
+                putString("USERNAME", username)
+            }
+        }
+        replaceFragment(homeFragment)
 
         binding.bottomNavigationView.setOnItemSelectedListener {
-            when(it.itemId){
+            when (it.itemId) {
                 R.id.home -> replaceFragment(Home())
                 R.id.chart -> replaceFragment(Chart())
-                R.id.news -> replaceFragment(News())
-                R.id.settings -> replaceFragment(Setting())
-
-                else ->{
+                R.id.settings -> {
+                    // ส่ง Username ไปยัง Setting Fragment
+                    val settingFragment = Setting().apply {
+                        arguments = Bundle().apply {
+                            putString("USERNAME", username)
+                        }
+                    }
+                    replaceFragment(settingFragment)
                 }
-
+                else -> {}
             }
             true
         }
     }
-    private fun replaceFragment(fragment : Fragment){
 
+    private fun replaceFragment(fragment: Fragment) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frame_layout,fragment)
+        fragmentTransaction.replace(R.id.frame_layout, fragment)
         fragmentTransaction.commit()
     }
 }

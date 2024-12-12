@@ -74,7 +74,8 @@ class Chart : Fragment() {
         entries.add(PieEntry(totalExpense, "Expenses"))
 
         val dataSet = PieDataSet(entries, "Transactions")
-        dataSet.setColors(Color.GREEN, Color.RED)
+        dataSet.setColors(Color.parseColor("#669933"),
+            Color.parseColor("#B22222"))
 
         val pieData = PieData(dataSet)
         pieChart.data = pieData
